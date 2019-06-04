@@ -1,7 +1,8 @@
 #!/bin/sh
 
 apk add --update
-output=$(python main.py)
+
+output=$(/env/bin/python main.py)
 
 #WORKDIR /app
 
