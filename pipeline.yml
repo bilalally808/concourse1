@@ -1,5 +1,5 @@
 resources:
-- name: https://github.com/bilalally808/concourse1
+- name: my-git-repo
   type: git
   source:
     uri: https://github.com/bilalally808/concourse1
@@ -9,6 +9,13 @@ jobs:
 - name: hello-world-job
   public: true
   plan:
-  - get: https://github.com/bilalally808/concourse1
+  - get: my-git-repo
   - task: task_print-hello-world
-    file: index.php
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: busybox
+      run:
+        path: ./my-git-repo/test.sh
