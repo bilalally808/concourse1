@@ -5,17 +5,24 @@ resources:
     uri: https://github.com/bilalally808/concourse1
     branch: master
 
+- name: base
+  type: docker-image
+  source:
+    repository: busybox
+    tag: latest
+
+
 jobs:
 - name: hello-world-job
   public: true
   plan:
-  - get: my-git-repo
-  - task: task_print-hello-world
-    config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source:
-          repository: busybox
-      run:
-        path: test.sh
+      - get: my-git-repo
+      - get: base
+      - task: print-hello
+        image: base
+        config:
+          inputs:
+          - name: my-git-repo
+          platform: linux
+          run:
+            path: my-git-repo/test.sh
