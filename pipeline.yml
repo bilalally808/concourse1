@@ -8,7 +8,7 @@ resources:
 - name: base
   type: docker-image
   source:
-    repository: alpine
+    repository: alp
     tag: latest
 
 
