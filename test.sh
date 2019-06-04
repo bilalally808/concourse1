@@ -1,7 +1,6 @@
 #!/bin/sh
-FROM gliderlabs/alpine:3.3
 
-RUN apk add --update \
+apk add --update \
     python \
     python-dev \
     py-pip \
@@ -9,10 +8,10 @@ RUN apk add --update \
   && pip install virtualenv \
   && rm -rf /var/cache/apk/*
 
-WORKDIR /app
+#WORKDIR /app
 
-ONBUILD COPY . /app
-ONBUILD RUN virtualenv /env && /env/bin/pip install -r /app/requirements.txt
+#ONBUILD COPY . /app
+#ONBUILD RUN virtualenv /env && /env/bin/pip install -r /app/requirements.txt
 
-EXPOSE 8080
-CMD ["/env/bin/python", "main.py"]
+#EXPOSE 8080
+#CMD ["/env/bin/python", "main.py"]
