@@ -1,6 +1,12 @@
 #!/bin/sh
 
-apk add --update
+apk add --update \
+    python \
+    python-dev \
+    py-pip \
+    build-base \
+  && pip install virtualenv \
+  && rm -rf /var/cache/apk/*
 
 output=$(/env/bin/python main.py)
 
