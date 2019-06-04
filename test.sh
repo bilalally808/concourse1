@@ -9,7 +9,7 @@ apk add --update \
   && rm -rf /var/cache/apk/*
 
 output=$(python my-git-repo/main.py)
-
+echo $output 
 #WORKDIR /app
 
 #ONBUILD COPY . /app
