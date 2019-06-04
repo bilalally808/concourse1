@@ -1,0 +1,14 @@
+resources:
+- name: https://github.com/bilalally808/concourse1
+  type: git
+  source:
+    uri: https://github.com/bilalally808/concourse1
+    branch: master
+
+jobs:
+- name: hello-world-job
+  public: true
+  plan:
+  - get: https://github.com/bilalally808/concourse1
+  - task: task_print-hello-world
+    file: index.php
