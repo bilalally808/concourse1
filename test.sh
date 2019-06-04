@@ -8,7 +8,7 @@ apk add --update \
   && pip install virtualenv \
   && rm -rf /var/cache/apk/*
 
-output=$(/env/bin/python main.py)
+output=$(python main.py)
 
 #WORKDIR /app
 
