@@ -1,1 +1,1 @@
-g = input("hello???")
+print("hello world")
