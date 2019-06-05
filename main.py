@@ -1,1 +1,1 @@
-print("hello world")
+g = input("hello???")
